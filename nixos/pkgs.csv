@@ -1,0 +1,99 @@
+# cli: Essential/system commands and CLI tools.
+|   | bat
+|   | btop
+|   | fastfetch
+| * | fd
+| * | fzf
+| * | git
+|   | home-manager
+|   | killall
+|   | libnotify
+|   | micro
+| * | oh-my-posh
+|   | pciutils |-> lspci
+|   | p7zip
+|   | tealdeer
+|   | unrar
+|   | unzip
+|   | usbutils |-> lsusb
+| * | zinit
+|   | zip
+| * | zsh
+| * | zsh-autosuggestions
+| * | zsh-completions
+| * | zsh-fzf-tab
+| * | zsh-syntax-highlightingt
+
+# core: Essential GUI programs for everyday use.
+|   | birdtray
+|   | chromium
+| * | engrampa
+| * | keepassxc
+| * | kitty
+|   | rustdesk
+|   | xfce.thunar
+| * | xnviewmp
+
+# dev : Development tools.
+|   | python314
+| * | vscode-fhs
+
+# ent: Entertainment / gaming programs.
+|   | obs-studio
+|   | vlc
+
+# firmware: Firmware/drivers and applications to interact with them.
+|   | blueman
+|   | brightnessctl
+|   | sof-firmware
+
+# soc: Social media and other messaging programs.
+| * | discord
+| * | telegram-desktop
+
+# tools: Mixed tools and utilities; typically lesser-used.
+|   | dd_rescue
+|   | dmg2img
+|   | ffmpeg
+|   | imagemagick
+|   | jmtpfs
+|   | jpeginfo
+|   | libreoffice-fresh
+|   | meld
+|   | partclone
+|   | qdirstat
+|   | qdiskinfo
+|   | rclone
+| * | remmina
+|   | tesseract
+|   | testdisk
+|   | wineWowPackages.stable
+|   | winetricks
+|   | xcolor
+
+# wm: Window manager tools and add-ins.
+|   | gvfs
+|   | haskellPackages.greenclip
+|   | networkmanager
+|   | networkmanagerapplet
+|   | plymouth
+|   | pulseaudio
+| * | rofi
+|   | rofimoji
+|   | volctl
+|   | wmctrl
+|   | xclip
+|   | xfce.thunar-archive-plugin
+|   | xfce.thunar-media-tags-plugin
+|   | xfce.xfce4-screenshooter
+|   | xmousepasteblock
+
+# wm/xfce: xfwm-specific add-ins
+|   | libcanberra-gtk3
+|   | lightdm
+|   | xfce.xfce4-battery-plugin
+|   | xfce.xfce4-docklike-plugin
+|   | xfce.xfce4-genmon-plugin
+|   | xfce.xfce4-notifyd
+|   | xfce.xfce4-pulseaudio-plugin
+|   | xfce.xfwm4

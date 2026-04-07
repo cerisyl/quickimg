@@ -1,0 +1,47 @@
+/* main   #131316 */
+/* hover  #25252e */
+/* border #515167 */
+
+#launcher-arrow {
+  padding: 0 12px;
+  background-color: #131316;
+}
+
+#launcher-arrow:hover {
+  background-color: #25252e;
+}
+
+#sn-button {
+  background-color: #131316;
+  padding: 0 3px;
+}
+
+#sn-button:hover {
+  background-color: #25252e;
+}
+
+#clock-button {
+  padding: 0 8px;
+  background-color: #131316;
+  margin-right: 6px;
+}
+
+#clock-button:hover {
+  background-color: #25252e;
+}
+
+#genmon-6 .genmon_imagebutton,
+#genmon-11 .genmon_imagebutton {
+  border-left: 1px solid #515167;
+  background-color: #131316;
+}
+
+#genmon-6 .genmon_imagebutton:hover,
+#genmon-11 .genmon_imagebutton:hover {
+  background-color: #25252e;
+}
+
+#genmon-6 image,
+#genmon-11 image {
+  -gtk-icon-transform: scale(0);
+}
