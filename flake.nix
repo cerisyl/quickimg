@@ -24,21 +24,23 @@
       inherit system;
       config.allowUnfree = true;
     };
-    defHost = myHostname: let
-  in nixpkgs.lib.nixosSystem {
-    specialArgs = {
-      inherit inputs system pkgsUnstable pkgsLegacy;
+  in {
+    nixosConfigurations.quix = nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit inputs system pkgsUnstable pkgsLegacy;
+      };
+      modules = [
+        ./nixos/host/configuration.nix
+        inputs.home-manager.nixosModules.home-manager
+        {
+          home-manager.sharedModules = [ ];
+          system.configurationRevision = self.rev or null;
+          system.nixos.label =
+            if (self.sourceInfo ? lastModifiedDate) && (self.sourceInfo ? shortRev)
+            then "${self.sourceInfo.shortRev}"
+            else "${self.sourceInfo.lastModifiedDate}-dirty";
+        }
+      ];
     };
-    modules = [
-      ./nixos/host/configuration.nix
-      inputs.home-manager.nixosModules.home-manager
-      {
-        home-manager.sharedModules = [ ];
-        system.configurationRevision = self.rev or null;
-        system.nixos.label =
-          if (self.sourceInfo ? lastModifiedDate) && (self.sourceInfo ? shortRev)
-          then "${self.sourceInfo.shortRev}"
-          else "${self.sourceInfo.lastModifiedDate}-dirty";
-      }
-    ];
-  }
+  };
+}

@@ -22,7 +22,7 @@
   networking.networkmanager.enable = true;
 
   # Users
-  users.users.ceri = {
+  users.users.owner = {
     isNormalUser  = true;
     extraGroups   = [ "wheel" "input" "networkmanager" ];
   };
