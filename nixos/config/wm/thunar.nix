@@ -1,12 +1,6 @@
 { config, pkgMap, homedir, lib, ... }: let
 
-  # Create and/or bookmark directories based on hostname
-  mkPlace = init: path: alias: {
-    dirs = {};
-    places = [ (if alias == true then path else "${path} ${alias}") ];
-  };
-
-  mkDir = init: path: type: place: isExtra:
+  mkDir = path: type: place: isExtra:
     let
       realType = if type == true then path else type;
       dirs = if isExtra == true

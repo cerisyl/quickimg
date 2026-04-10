@@ -75,7 +75,7 @@
   # Misc
   browserArgs = "--enable-blink-features=MiddleClickAutoscroll --disable-smooth-scrolling";
 
-  custom = init: name: filename: exec: icon: { inherit init name filename exec icon; };
+  custom = name: filename: exec: icon: { inherit name filename exec icon; };
   customLaunchers = [
     #custom Name              .desktop file           Exec (true if == .desktop file)       Icon (true if == .desktop file)
     # session/power
@@ -92,11 +92,6 @@
     (custom "File Explorer"   "xfce4-file-manager"    "exo-open --launch FileManager %u"    "system-file-manager")
   ];
 
-  # Only import packages containing the hostID in the init string
-  filteredCustoms = builtins.filter (entry:
-    lib.strings.hasInfix hostID entry.init
-  ) customLaunchers;
-
   mappedCustoms = builtins.listToAttrs (map (obj: {
     name = ".local/share/applications/${obj.filename}.desktop";
     value.text = ''
@@ -106,7 +101,7 @@
       Exec=${if obj.exec == true then obj.filename else obj.exec}
       Icon=${if obj.icon == true then obj.filename else obj.icon}
     '';
-  }) filteredCustoms);
+  }) customLaunchers);
 
 in {
   # Create custom launchers here

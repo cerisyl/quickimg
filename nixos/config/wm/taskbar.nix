@@ -112,5 +112,5 @@ in {
   xfconf.settings.xfce4-panel = {
     "panels"            = [ 1 ];
     "panels/dark-mode"  = themeProps.darkMode;
-  } // mainPanel // extraPanel;
+  } // mainPanel;
 }

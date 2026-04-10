@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, pkgsUnstable, pkgsLegacy, pkgsGit, lib, ... }: let
+{ inputs, config, pkgs, pkgsUnstable, pkgsLegacy, lib, ... }: let
   # Utility functions to translate 
   getAttrByList = set: pathList:
     if pathList == [] then set
@@ -21,8 +21,8 @@
   ) pkgsClean;
   allPkgs = map (entry: {
     blank       = builtins.elemAt entry 0;
-    isUnstable  = lib.strings.hasInfix "*" (builtins.elemAt entry 0);
-    pkg         = lib.strings.trim (builtins.elemAt entry 1);
+    isUnstable  = lib.strings.hasInfix "*" (builtins.elemAt entry 1);
+    pkg         = lib.strings.trim (builtins.elemAt entry 2);
   }) pkgsSplit;
 
   # Get our packages using the specified channel of choice (isUnstable)
@@ -30,14 +30,14 @@
     if entry.isUnstable == true
     then getAttrByStr pkgsUnstable entry.pkg
     else getAttrByStr pkgs entry.pkg
-  ) enabledPkgs;
+  ) allPkgs;
 
   # Also spawn an object to use in loading proper packages in config
   pkgMap = builtins.listToAttrs (map (entry:
     if entry.isUnstable == true
     then { name = entry.pkg; value = getAttrByStr pkgsUnstable entry.pkg; }
     else { name = entry.pkg; value = getAttrByStr pkgs entry.pkg; }
-  ) enabledPkgs);
+  ) allPkgs);
 in {
   # Main params
   networking.hostName = "quix";
@@ -57,7 +57,7 @@ in {
   users = {
     groups.share = {};
     users = {
-      ceri = {
+      owner = {
         isNormalUser  = true;
         shell         = pkgsUnstable.zsh;
         extraGroups   = [ "wheel" "input" "networkmanager" ];

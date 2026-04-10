@@ -1,7 +1,7 @@
 { config, pkgMap, lib, ... }: {
   home.file = {
-    ".config/kitty/theme.conf".text = builtins.readFile ("../theme/kitty.conf");
-    ".config/kitty/diff.conf".text = builtins.readFile ("../theme/kitty-diff.conf");
+    ".config/kitty/ceres.conf".text = builtins.readFile ../../../theme/kitty.conf;
+    ".config/kitty/diff.conf".text = builtins.readFile ../../../theme/kitty-diff.conf;
   };
   programs.kitty = {
     enable    = true;
@@ -10,7 +10,7 @@
     font.size = 10;
     shellIntegration.enableZshIntegration = true;
     settings  = {
-      include                     = "./${theme}.conf";
+      include                     = "./ceres.conf";
       draw_minimal_borders        = true;
       window_margin_width         = 1;
       single_window_margin_width  = -1;

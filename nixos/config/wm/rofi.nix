@@ -4,11 +4,11 @@
     package   = pkgMap.rofi;
     terminal  = "kitty";
     # Grid config (used in place as base theme, imports rofi.rasi)
-    theme     = "../theme/rofi.rasi";
+    theme     = ../../../theme/rofi.rasi;
     extraConfig = {
       modi                = "drun,filebrowser";
       show-icons          = true;
-      icon-theme          = "${theme}-icons";
+      icon-theme          = "Adwaita";
       drun-display-format = "{name}";
       hover-select        = true;
       scrollbar           = true;

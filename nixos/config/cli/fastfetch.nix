@@ -4,7 +4,7 @@
     package   = pkgMap.fastfetch;
     settings  = {
       logo = {
-        source      = ../extra/face.png;
+        source      = ../../../extra/face.png;
         type        = "kitty-direct";
         width       = 33;
         height      = 15;

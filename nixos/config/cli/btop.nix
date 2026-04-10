@@ -1,10 +1,10 @@
 { config, pkgMap, lib, ... }: {
-  home.file.".config/btop/themes/${theme}.theme".text = builtins.readFile "../theme/btop.theme";
+  home.file.".config/btop/themes/ceres.theme".text = builtins.readFile ../../../theme/btop.theme;
   programs.btop = {
     enable    = true;
     package   = pkgMap.btop;
     settings  = {
-      color_theme               = theme;
+      color_theme               = "ceres";
       theme_background          = true;
       truecolor                 = true;
       force_tty                 = false;
